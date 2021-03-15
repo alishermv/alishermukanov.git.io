@@ -19,21 +19,22 @@ class UserTest extends TestCase
 
         $response->assertStatus(200);
     }
+//test1
+    public function test_post_id_get_request() {
 
-    public function test_user_id_get_request() {
-
-        $response = $this->get('/post');
+        $response = $this->get('/post/18');
         $response->assertStatus(200);
     }
-    public function test_get_unexisted_user() {
+    //test2
+    public function test_get_unexisted_post() {
         
-        $response = $this->get('/post/5');
+        $response = $this->get('/post/1000');
         $response->assertStatus(404);
     }
-
-    public function test_user_response() {
+//test3
+    public function test_post_response() {
         
-        $response = $this->get('/post/5');
-        $response->assertViewHas('post');
+        $response = $this->get('/post/18');
+        $response->assertViewHas('posts');
     }
 }

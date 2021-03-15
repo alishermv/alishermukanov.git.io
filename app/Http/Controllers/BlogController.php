@@ -22,7 +22,7 @@ class BlogController extends Controller
     public function get_user($id) {
         $posts = Post::find($id);
         if ($posts == null) 
-            return response(['message' => 'user not found!'], 404);
+            return response(['message' => 'user not found'], 404);
         
         return view('client.detail')->with(['posts' => $posts]);
     }
