@@ -19,7 +19,15 @@ Route::get('/bonus', function() {
     return view('bonus');
 });
 
-Route::get('/post/create', function() {
+// Route::get('/post/create', function() {
+//     DB::table('posts')->insert([
+//         'id' => 18,
+//         'Title' => 'Industry News',
+//         'Body' => 'In raw numbers, news articles get more social shares than any other type of article.'
+//     ]);
+// });
+
+Route::get('/post/add', function() {
     DB::table('posts')->insert([
         'id' => 18,
         'Title' => 'Industry News',
@@ -39,3 +47,6 @@ Route::get('post/create', function (){
 });
 
 Route::post('post/create', [BlogController::class, 'store'])->name('add-client');
+
+
+Route::get('post/{id}', [BlogController::class, 'get_user']);

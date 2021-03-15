@@ -19,18 +19,19 @@ class UserTest extends TestCase
 
         $response->assertStatus(200);
     }
-    public function user_test1() {
+
+    public function test_user_id_get_request() {
 
         $response = $this->get('/post');
         $response->assertStatus(200);
     }
-    public function user_test2() {
+    public function test_get_unexisted_user() {
         
         $response = $this->get('/post/5');
         $response->assertStatus(404);
     }
 
-    public function user_test3() {
+    public function test_user_response() {
         
         $response = $this->get('/post/5');
         $response->assertViewHas('post');
