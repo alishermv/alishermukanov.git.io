@@ -10,8 +10,8 @@
     <form method="POST" action=" {{ route('add-client') }} ">
     @csrf
     <input type="text" name="ID" placeholder="ID">
-    <input type="text" name="Title" placeholder="Name">
-    <input type="text" name="Body" placeholder="Surname">
+    <input type="text" name="Title" placeholder="Title">
+    <input type="text" name="Body" placeholder="Body">
     <button type="submit">Send</button>
     </form>
 
