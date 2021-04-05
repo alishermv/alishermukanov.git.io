@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\post;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\EmailuserController;
+use App\Http\Controllers\MailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,3 +52,11 @@ Route::post('post/create', [BlogController::class, 'store'])->name('add-client')
 
 
 Route::get('post/{id}', [BlogController::class, 'get_user']);
+
+
+// lab8
+Route::get('/user', 'App\Http\Controllers\EmailuserController@index');
+
+Route::post('/addimage', 'App\Http\Controllers\EmailuserController@store')->name('addimage');
+
+Route::get('mail/send','App\Http\Controllers\MailController@send');
