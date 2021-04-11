@@ -21,13 +21,7 @@ Route::get('/bonus', function() {
     return view('bonus');
 });
 
-// Route::get('/post/create', function() {
-//     DB::table('posts')->insert([
-//         'id' => 18,
-//         'Title' => 'Industry News',
-//         'Body' => 'In raw numbers, news articles get more social shares than any other type of article.'
-//     ]);
-// });
+
 
 Route::get('/post/add', function() {
     DB::table('posts')->insert([
@@ -37,10 +31,7 @@ Route::get('/post/add', function() {
     ]);
 });
 
-/*Route::get('post', function () {
-    $post = Post::find(18);
-    return $post->Title;
-});*/
+
 
 Route::get('post', [BlogController::class, 'index']);
 
@@ -60,3 +51,11 @@ Route::get('/user', 'App\Http\Controllers\EmailuserController@index');
 Route::post('/addimage', 'App\Http\Controllers\EmailuserController@store')->name('addimage');
 
 Route::get('mail/send','App\Http\Controllers\MailController@send');
+
+
+//lab9
+
+Route::get('home/{lang}', function($lang){
+    App::setlocale($lang);
+    return view('home');
+});
